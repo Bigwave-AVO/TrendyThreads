@@ -40,9 +40,10 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Product Container (Fixing layout) */
 .product-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 per row */
     gap: 20px;
     padding: 20px;
 }
@@ -82,20 +83,13 @@ h2 {
     cursor: pointer;
 }
 
-#contact ul {
-    list-style: none;
+.price {
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
 }
 
-#contact ul li {
-    margin: 10px 0;
-}
-
-#contact ul li a {
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-}
-
+/* Contact Section */
 #contact ul {
     list-style: none;
     display: flex;
@@ -114,32 +108,54 @@ h2 {
     transform: scale(1.2);
 }
 
-.price {
-    font-weight: bold;
-    color: #333;
-    margin-top: 5px;
-}
-
 /* Responsive Styles */
 
-/* For tablets (max-width: 768px) */
+/* Tablets (max-width: 768px) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row; /* Align items horizontally */
+        text-align: left; /* Align text to the left */
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row; /* Align items horizontally */
+        justify-content: flex-end; /* Align items to the right */
     }
 
     .product-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+        gap: 15px;
+    }
+
+    /* Fix squeezed navigation tabs */
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    /* Make contact section properly aligned */
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .contact-item {
+        flex: 1 1 45%;
+        text-align: center;
     }
 }
 
-/* For mobile phones (max-width: 480px) */
+/* Mobile (max-width: 480px) */
 @media (max-width: 480px) {
     header {
         flex-direction: column;
@@ -153,7 +169,7 @@ h2 {
     }
 
     .product-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 product per row on mobile */
     }
 
     .product {
