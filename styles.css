@@ -184,4 +184,17 @@ h2 {
     }
 }
 
+/* Override responsive styles for navbar and contact section */
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: row; /* Keep navbar items in a row */
+        gap: 20px; /* Restore desktop gap */
+    }
+
+    #contact ul {
+        flex-direction: row; /* Keep contact items in a row */
+        gap: 15px; /* Restore desktop gap */
+    }
+}
+
 
