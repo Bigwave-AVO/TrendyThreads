@@ -26,12 +26,20 @@
             <div class="product-images">
                 <!-- Main Product Image -->
                 <div class="main-image-container">
-                    <img src="" alt="Product Image" id="product-image">
+                    <a id="download-link" href="" download>
+                        <img src="" alt="Product Image" id="product-image">
+                    </a>
                 </div>
 
                 <!-- Thumbnail Gallery -->
                 <div class="thumbnail-gallery" id="thumbnail-gallery">
                     <!-- Thumbnails will be dynamically added here -->
+                </div>
+
+                <!-- Modal for Full Image -->
+                <div id="image-modal" class="modal">
+                    <span class="close" id="close-modal">&times;</span>
+                    <img class="modal-content" id="modal-image" alt="Full Product Image">
                 </div>
             </div>
 

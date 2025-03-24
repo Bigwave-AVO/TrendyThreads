@@ -10,6 +10,12 @@ body {
     line-height: 1.6;
     background-color: #f5f5f5;
     color: #333;
+    font-weight: 500; /* Make all text slightly bold (normal is 400, bold is 700) */
+}
+
+/* Remove underlines from all links */
+a {
+    text-decoration: none; /* Remove default underline from all links */
 }
 
 /* Navbar */
@@ -34,20 +40,28 @@ nav ul {
 
 nav ul li a {
     color: white;
-    text-decoration: none;
     font-size: 16px;
+    font-weight: bold; /* Make "Home" and "Shop" text bold */
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    /* Removed text-decoration: underline */
+    /* Add a subtle color change on hover instead */
+    color: #ccc; /* Light gray to indicate hover without underline */
 }
 
-/* Contact Section */
+/* Footer (Contact and About Us Sections) */
 #contact {
     background-color: black;
     color: white;
     padding: 20px;
     text-align: center;
+}
+
+/* Nested sections within the footer */
+#contact #about,
+#contact #contact-content {
+    margin-bottom: 20px; /* Add spacing between About Us and Contact Us sections */
 }
 
 #contact ul {
@@ -103,6 +117,10 @@ nav ul li a:hover {
     margin: 10px 0;
     font-size: 16px;
     color: #333;
+}
+
+.product p:first-child {
+    font-weight: bold; /* Make product names bold (first <p> in each product card) */
 }
 
 .product .price {
@@ -301,12 +319,20 @@ nav ul li a:hover {
     background: #333;
 }
 
-/* Center-align section titles */
+/* Center-align section titles (Featured Products and All Products) */
 .section-title {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333;
+    color: black; /* Ensure Featured Products and All Products are black */
+}
+
+/* Center-align footer titles (About Us and Contact Us) */
+.footer-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white; /* Ensure About Us and Contact Us are white */
 }
 
 /* Center-align About Us text */
@@ -315,7 +341,7 @@ nav ul li a:hover {
     font-size: 16px;
     margin: 0 auto;
     max-width: 600px;
-    color: #555;
+    color: white;
 }
 
 /* Product Gallery */
@@ -373,6 +399,49 @@ nav ul li a:hover {
 .thumbnail-image:hover {
     transform: scale(1.1);
     border-color: #333;
+}
+
+/* Modal (Lightbox) Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position to cover the entire viewport */
+    z-index: 1000; /* Ensure it appears above all other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    backdrop-filter: blur(5px); /* Optional: Add a blur effect to the background */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure it stays above the modal background */
+    z-index: 1001; /* Higher than the modal background */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: black; /* Close button color */
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1002; /* Ensure it stays above the modal content */
+}
+
+.close:hover,
+.close:focus {
+    color: #555;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Responsive Styles */
