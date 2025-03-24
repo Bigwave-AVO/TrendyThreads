@@ -14,47 +14,91 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Search Section -->
+    <section id="search-section">
+        <div class="search-bar-container">
+            <input type="text" id="search-bar-shop" placeholder="Search products...">
+            <button id="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="search-icon">
+                    <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
     <!-- Shop Section -->
     <section id="shop">
-        <h2>All Products</h2>
+        <h2 class="section-title">All Products</h2>
         <div class="product-container" id="shop-product-list">
             <div class="product" data-name="T-Shirt">
-                <img src="images/T shirt.jpg" alt="T-Shirt">
-                <p>T-Shirt</p>
+                <a href="product-details.html?product=T-Shirt&image=images/T%20shirt.jpg">
+                    <img src="images/T shirt.jpg" alt="T-Shirt">
+                    <p>T-Shirt</p>
+                </a>
                 <p class="price">$19.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product" data-name="Joggers">
-                <img src="images/jeans.jpg" alt="Joggers">
-                <p>Joggers</p>
+                <a href="product-details.html?product=Joggers&image=images/jeans.jpg">
+                    <img src="images/jeans.jpg" alt="Joggers">
+                    <p>Joggers</p>
+                </a>
                 <p class="price">$29.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-
             <div class="product" data-name="Leather Jacket">
-                <img src="images/leather jacket.jpg" alt="Leather Jacket">
-                <p>Leather Jacket</p>
+                <a href="product-details.html?product=Leather Jacket&image=images/leather%20jacket.jpg">
+                    <img src="images/leather jacket.jpg" alt="Leather Jacket">
+                    <p>Leather Jacket</p>
+                </a>
                 <p class="price">$89.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product" data-name="Cap">
-                <img src="images/cap.jpg" alt="Cap">
-                <p>Cap</p>
+                <a href="product-details.html?product=Cap&image=images/cap.jpg">
+                    <img src="images/cap.jpg" alt="Cap">
+                    <p>Cap</p>
+                </a>
                 <p class="price">$14.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            
-            <div class="product" data-name="sneakers">
-                <img src="images/sneakers.jpg" alt="Sweatshirt">
-                <p>sneakers</p>
-                <p class="price">$39</p>
+            <div class="product" data-name="Sneakers">
+                <a href="product-details.html?product=Sneakers&image=images/sneakers.jpg">
+                    <img src="images/sneakers.jpg" alt="Sneakers">
+                    <p>Sneakers</p>
+                </a>
+                <p class="price">$39.00</p>
                 <button class="add-to-cart">Add to Cart</button>
+            </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <ul>
+            <li>
+                <a href="#" target="_blank">
+                    <img src="page assets/instagram.gif" alt="Instagram" width="30">
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                    <img src="page assets/X.gif" alt="X (Twitter)" width="30">
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                    <img src="page assets/facebook  icon.png" alt="Facebook" width="30">
+                </a>
+            </li>
+        </ul>
+    </footer>
 
     <script src="script.js"></script>
 </body>

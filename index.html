@@ -19,72 +19,94 @@
             </ul>
         </nav>
     </header>
-     <!--featured products-->
+
+    <!-- Search Section -->
+    <section id="search-section">
+        <div class="search-bar-container">
+            <input type="text" id="search-bar" placeholder="Search products...">
+            <button id="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="search-icon">
+                    <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
     <section id="featured-products">
-        <h2>Featured Products</h2>
+        <h2 class="section-title">Featured Products</h2>
         <div class="product-container" id="product-list">
-            <div class="product" data-name="Black Hoodie">
-                <img src="images/black hoodie.jpg" alt="Black Hoodie">
-                <p>Black Hoodie</p>
-                <p class="price">$49.99</p>
+            <div class="product" data-name="T-Shirt">
+                <a href="product-details.html?product=T-Shirt&image=images/T%20shirt.jpg">
+                    <img src="images/T shirt.jpg" alt="T-Shirt">
+                    <p>T-Shirt</p>
+                </a>
+                <p class="price">$19.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product" data-name="White Sneakers">
-                <img src="images/sneakers.jpg" alt="White Sneakers">
-                <p>White Sneakers</p>
-                <p class="price">$79.99</p>
+            <div class="product" data-name="Joggers">
+                <a href="product-details.html?product=Joggers&image=images/jeans.jpg">
+                    <img src="images/jeans.jpg" alt="Joggers">
+                    <p>Joggers</p>
+                </a>
+                <p class="price">$29.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product" data-name="Denim Jacket">
-                <img src="images/Denim jackect.jpg" alt="Denim Jacket">
-                <p>Denim Jacket</p>
-                <p class="price">$59.99</p>
+            <div class="product" data-name="Leather Jacket">
+                <a href="product-details.html?product=Leather Jacket&image=images/leather%20jacket.jpg">
+                    <img src="images/leather jacket.jpg" alt="Leather Jacket">
+                    <p>Leather Jacket</p>
+                </a>
+                <p class="price">$89.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product" data-name="Cargo Pants">
-                <img src="images/cargo pants.jpg" alt="Cargo Pants">
-                <p>Cargo Pants</p>
-                <p class="price">$39.99</p>
+            <div class="product" data-name="Cap">
+                <a href="product-details.html?product=Cap&image=images/cap.jpg">
+                    <img src="images/cap.jpg" alt="Cap">
+                    <p>Cap</p>
+                </a>
+                <p class="price">$14.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product" data-name="Black Dress">
-                <img src="images/black gown.jpg" alt="Black Dress">
-                <p>Black Dress</p>
-                <p class="price">$69</p>
+            <div class="product" data-name="Sneakers">
+                <a href="product-details.html?product=Sneakers&image=images/sneakers.jpg">
+                    <img src="images/sneakers.jpg" alt="Sneakers">
+                    <p>Sneakers</p>
+                </a>
+                <p class="price">$39.00</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
     </section>
-    
+
     <!-- About Us Section -->
     <section id="about">
-        <h2>About Us</h2>
-        <p>TrendyThreads is your go-to fashion store, bringing you the latest trends with a touch of elegance. We believe in style, comfort, and affordability.</p>
+        <h2 class="section-title">About Us</h2>
+        <p class="about-text">TrendyThreads is your go-to fashion store, bringing you the latest trends with a touch of elegance. We believe in style, comfort, and affordability.</p>
     </section>
 
-   <section>
+    <!-- Contact Section -->
     <footer id="contact">
         <h2>Contact Us</h2>
         <ul>
             <li>
-                <a href="https://instagram.com/yourpage" target="_blank">
-                    <img src="page assets/IG icon.png" alt="Instagram" width="30">
+                <a href="#" target="_blank">
+                    <img src="page assets/instagram.gif" alt="Instagram" width="30">
                 </a>
             </li>
             <li>
-                <a href="https://x.com/yourpage" target="_blank">
-                    <img src="page assets/X icon.png" alt="X (Twitter)" width="30">
+                <a href="#" target="_blank">
+                    <img src="page assets/X.gif" alt="X (Twitter)" width="30">
                 </a>
             </li>
             <li>
-                <a href="https://facebook.com/yourpage" target="_blank">
-                    <img src="page assets/facebook  icon.png" alt="Facebook" width="30">
+                <a href="#" target="_blank">
+                    <img src="page assets/facebook.gif" alt="Facebook" width="30">
                 </a>
             </li>
         </ul>
     </footer>
-</section>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
