@@ -26,28 +26,99 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 header h1 {
     font-size: 24px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-nav ul li a {
+/* Hamburger Menu */
+.hamburger-menu {
+    font-size: 24px;
+    cursor: pointer;
     color: white;
-    font-size: 16px;
-    font-weight: bold; /* Make "Home" and "Shop" text bold */
+    display: block; /* Always display the hamburger menu */
+    transition: transform 0.3s ease-in-out; /* Add animation to the icon */
 }
 
-nav ul li a:hover {
-    /* Removed text-decoration: underline */
-    /* Add a subtle color change on hover instead */
-    color: #ccc; /* Light gray to indicate hover without underline */
+/* Rotate the hamburger icon when sidebar is open */
+.hamburger-menu.open {
+    transform: rotate(90deg); /* Rotate the icon */
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0; /* Change from left to right */
+    background-color: black;
+    overflow-x: hidden;
+    transition: width 0.3s ease-in-out; /* Smooth opening/closing animation */
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 20px; /* Adjust position for right-aligned sidebar */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Below the sidebar but above the main content */
+    display: none; /* Hidden by default */
+}
+
+/* Show the overlay when the sidebar is open */
+.overlay.active {
+    display: block;
+}
+
+/* Show hamburger menu on smaller screens */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    nav ul {
+        display: none; /* Hide default navbar links */
+    }
 }
 
 /* Footer (Contact and About Us Sections) */
@@ -582,12 +653,50 @@ nav ul li a:hover {
     }
 
     nav ul {
-        flex-direction: row; /* Keep navbar items in a row */
-        gap: 15px; /* Restore desktop gap */
+        display: flex;
+        flex-direction: row; /* Keep navbar items in a single row */
+        justify-content: flex-end; /* Align items to the right */
+        gap: 15px; /* Maintain spacing between items */
+        white-space: nowrap; /* Prevent items from wrapping */
+    }
+
+    nav ul li {
+        flex: 0; /* Prevent items from resizing */
+        text-align: center; /* Center-align the text */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Keep font size consistent */
+        padding: 5px 10px; /* Add padding for better touch targets */
+        color: white; /* Ensure text color remains white */
     }
 
     .product-container {
-        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Maintain spacing between products */
+        justify-content: space-between; /* Ensure proper alignment */
+    }
+
+    .product {
+        flex: 0 0 calc(50% - 10px); /* Two products per row (50% width minus gap) */
+        box-sizing: border-box; /* Include padding and border in width */
+        padding: 10px;
+    }
+
+    .product img {
+        max-width: 100%; /* Ensure images fit within the product card */
+        height: auto;
+    }
+
+    .product-actions {
+        flex-wrap: nowrap; /* Prevent buttons from wrapping */
+        gap: 5px; /* Reduce gap for smaller screens */
+    }
+
+    .add-to-cart, .add-to-wishlist {
+        flex: 1; /* Ensure buttons share equal space */
+        max-width: 48%; /* Keep buttons within the card width */
     }
 
     .product {

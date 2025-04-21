@@ -11,14 +11,23 @@
     <!-- Navbar -->
     <header>
         <h1>TrendyThreads</h1>
-        <nav>
-            <ul>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="wishlist.html"> Wishlist</a></li>
-                <li><a href="#cart.html">Cart</a></li>
-            </ul>
-        </nav>
+        <div class="hamburger-menu" onclick="toggleSidebar()">
+            &#9776; <!-- Hamburger icon -->
+        </div>
     </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
     <section id="search-section">
         <div class="search-bar-container">

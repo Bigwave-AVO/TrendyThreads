@@ -422,7 +422,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    // Function to add a product to the cart
+    function addToCart(productName, productPrice, productImage, productQuantity = 1) {
+        const existingProduct = cart.find((item) => item.name === productName);
+        if (existingProduct) {
+            existingProduct.quantity += productQuantity; // Update quantity if product exists
+        } else {
+            cart.push({
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: productQuantity,
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${productQuantity} ${productName}(s) added to cart!`);
+    }
+
+    // Add event listeners to all "Add to Cart" buttons
+    document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", function () {
+            const productElement = button.closest(".product");
+            const productName = productElement.dataset.name;
+            const productPrice = productElement.querySelector(".price").textContent;
+            const productImage = productElement.querySelector("img").src;
+
+            addToCart(productName, productPrice, productImage);
+        });
+    });
 
     // Function to load cart items
     function loadCart() {
@@ -439,8 +468,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let subtotal = 0;
 
         cart.forEach((item, index) => {
-            const isInWishlist = wishlist.some((wishlistItem) => wishlistItem.name === item.name);
-
             const itemElement = document.createElement("div");
             itemElement.classList.add("cart-item");
             itemElement.innerHTML = `
@@ -454,12 +481,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="increase-quantity" data-index="${index}">+</button>
                     </p>
                     <div class="product-actions">
-                        <button class="add-to-wishlist" data-index="${index}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon ${isInWishlist ? 'filled' : ''}">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                            </svg>
-                            Add to Wishlist
-                        </button>
                         <button class="remove-from-cart" data-index="${index}">Remove from Cart</button>
                     </div>
                 </div>
@@ -473,10 +494,6 @@ document.addEventListener("DOMContentLoaded", function () {
         subtotalElement.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
 
         // Add event listeners for buttons
-        document.querySelectorAll(".add-to-wishlist").forEach((button) => {
-            button.addEventListener("click", addToWishlist);
-        });
-
         document.querySelectorAll(".remove-from-cart").forEach((button) => {
             button.addEventListener("click", removeFromCart);
         });
@@ -489,21 +506,15 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", decreaseQuantity);
         });
 
+        // Add event listener for product image click to redirect to product details page
         document.querySelectorAll(".cart-item-image").forEach((image) => {
-            image.addEventListener("click", goToProductDetails);
+            image.addEventListener("click", function () {
+                const index = this.dataset.index;
+                const product = cart[index];
+                const productDetailsUrl = `product-details.html?product=${encodeURIComponent(product.name)}`;
+                window.location.href = productDetailsUrl; // Redirect to product details page
+            });
         });
-    }
-
-    // Function to add an item to the wishlist
-    function addToWishlist(event) {
-        const index = event.target.closest("button").dataset.index;
-        const product = cart[index];
-
-        if (!wishlist.some((item) => item.name === product.name)) {
-            wishlist.push(product);
-            localStorage.setItem("wishlist", JSON.stringify(wishlist));
-            loadCart(); // Reload the cart to update the wishlist icon
-        }
     }
 
     // Function to remove an item from the cart
@@ -532,13 +543,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to navigate to product details page
-    function goToProductDetails(event) {
-        const index = event.target.dataset.index;
-        const product = cart[index];
-        window.location.href = `product-details.html?product=${encodeURIComponent(product.name)}&image=${encodeURIComponent(product.image)}&price=${encodeURIComponent(product.price)}`;
-    }
-
     // Function to add to cart from product details page
     const addToCartButton = document.getElementById("add-to-cart-button");
     if (addToCartButton) {
@@ -546,24 +550,30 @@ document.addEventListener("DOMContentLoaded", function () {
             const productName = document.getElementById("product-name").textContent;
             const productPrice = document.getElementById("product-price").textContent;
             const productImage = document.getElementById("product-image").src;
+            const productQuantity = parseInt(document.getElementById("product-quantity").value);
 
-            const existingProduct = cart.find((item) => item.name === productName);
-            if (existingProduct) {
-                existingProduct.quantity += 1;
-            } else {
-                cart.push({
-                    name: productName,
-                    price: productPrice,
-                    image: productImage,
-                    quantity: 1,
-                });
-            }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`${productName} added to cart!`);
+            addToCart(productName, productPrice, productImage, productQuantity);
         });
     }
 
     // Initial load
-    loadCart();
+    if (document.getElementById("cart-items")) {
+        loadCart();
+    }
 });
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+    if (sidebar.style.width === '250px') {
+        sidebar.style.width = '0';
+        overlay.classList.remove('active'); // Hide the overlay
+        hamburgerMenu.classList.remove('open'); // Remove rotation
+    } else {
+        sidebar.style.width = '250px';
+        overlay.classList.add('active'); // Show the overlay
+        hamburgerMenu.classList.add('open'); // Add rotation
+    }
+}

@@ -8,17 +8,24 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <header>
-        <h1>TrendyThreads</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="wishlist.html">Wishlist</a></li>
-            </ul>
-        </nav>
-    </header>
+ <!-- Navbar -->
+ <header>
+    <h1>Cart</h1>
+    <div class="hamburger-menu" onclick="toggleSidebar()">
+        &#9776; <!-- Hamburger icon -->
+    </div>
+</header>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+    </ul>
+</div>
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
     <!-- Cart Section -->
     <section id="cart-section">
