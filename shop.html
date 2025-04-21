@@ -14,6 +14,8 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="#cart.html">Cart</a></li>
             </ul>
         </nav>
     </header>
@@ -22,11 +24,9 @@
     <section id="search-section">
         <div class="search-bar-container">
             <input type="text" id="search-bar-shop" placeholder="Search products...">
-            <button id="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="search-icon">
-                    <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
-                </svg>
-            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="search-icon">
+                <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707a1 1 0 001.414-1.414l-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
         </div>
     </section>
 
@@ -34,86 +34,158 @@
     <section id="shop">
         <h2 class="section-title">All Products</h2>
         <div class="product-container" id="shop-product-list">
+            <!-- Product 1 -->
             <div class="product" data-name="T-Shirt">
                 <a href="product-details.html?product=T-Shirt&image=images/T%20shirt.jpg">
                     <img src="images/T shirt.jpg" alt="T-Shirt">
-                    <p>T-Shirt</p>
+                </a>
+                <a href="product-details.html?product=T-Shirt&image=images/T%20shirt.jpg" class="product-name">
+                    T-Shirt
                 </a>
                 <p class="price">$19.99</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="1">Add to Cart</button>
+                    <button class="add-to-wishlist" data-id="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
             </div>
+
+            <!-- Product 2 -->
             <div class="product" data-name="Joggers">
                 <a href="product-details.html?product=Joggers&image=images/jeans.jpg">
                     <img src="images/jeans.jpg" alt="Joggers">
-                    <p>Joggers</p>
+                </a>
+                <a href="product-details.html?product=Joggers&image=images/jeans.jpg" class="product-name">
+                    Joggers
                 </a>
                 <p class="price">$29.99</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="2">Add to Cart</button>
+                    <button class="add-to-wishlist" data-id="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
             </div>
+
+            <!-- Product 3 -->
             <div class="product" data-name="Leather Jacket">
                 <a href="product-details.html?product=Leather Jacket&image=images/leather%20jacket.jpg">
                     <img src="images/leather jacket.jpg" alt="Leather Jacket">
-                    <p>Leather Jacket</p>
+                </a>
+                <a href="product-details.html?product=Leather Jacket&image=images/leather%20jacket.jpg" class="product-name">
+                    Leather Jacket
                 </a>
                 <p class="price">$89.99</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="3">Add to Cart</button>
+                    <button class="add-to-wishlist" data-id="3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
             </div>
+
+            <!-- Product 4 -->
             <div class="product" data-name="Cap">
                 <a href="product-details.html?product=Cap&image=images/cap.jpg">
                     <img src="images/cap.jpg" alt="Cap">
-                    <p>Cap</p>
+                </a>
+                <a href="product-details.html?product=Cap&image=images/cap.jpg" class="product-name">
+                    Cap
                 </a>
                 <p class="price">$14.99</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="4">Add to Cart</button>
+                    <button class="add-to-wishlist" data-id="4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
             </div>
+
+            <!-- Product 5 -->
             <div class="product" data-name="Sneakers">
                 <a href="product-details.html?product=Sneakers&image=images/sneakers.jpg">
                     <img src="images/sneakers.jpg" alt="Sneakers">
-                    <p>Sneakers</p>
+                </a>
+                <a href="product-details.html?product=Sneakers&image=images/sneakers.jpg" class="product-name">
+                    Sneakers
                 </a>
                 <p class="price">$39.00</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="5">Add to Cart</button>
+                    <button class="add-to-wishlist" data-id="5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
             </div>
+
+            <!-- Product 6 -->
             <div class="product" data-name="Armless-shirt">
                 <a href="product-details.html?product=Armless-shirt&image=images/Armless-shirt.jpg">
                     <img src="images/Armless-shirt.jpg" alt="Armless-shirt">
-                    <p>Armless-shirt</p>
                 </a>
-                <p class="price">$19</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <a href="product-details.html?product=Armless-shirt&image=images/Armless-shirt.jpg" class="product-name">
+                    Armless-shirt
+                </a>
+                <p class="price">$19.00</p>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="6">Add to Cart</button>
+                    <button class="add-to-wishlist" data-id="6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wishlist-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-  <!-- Footer -->
-<footer id="contact">
-    <section id="about">
-        <h2 class="footer-title">About Us</h2>
-        <p class="about-text">TrendyThreads is your go-to fashion store, bringing you the latest trends with a touch of elegance. We believe in style, comfort, and affordability.</p>
-    </section>
+    <!-- Footer -->
+    <footer id="contact">
+        <section id="about">
+            <h2 class="footer-title">About Us</h2>
+            <p class="about-text">TrendyThreads is your go-to fashion store, bringing you the latest trends with a touch of elegance. We believe in style, comfort, and affordability.</p>
+        </section>
 
-    <section id="contact-content">
-        <h2 class="footer-title">Contact Us</h2>
-        <ul>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="page assets/instagram.gif" alt="Instagram" width="30">
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="page assets/X.gif" alt="X (Twitter)" width="30">
-                </a>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="page assets/facebook.gif" alt="Facebook" width="30">
-                </a>
-            </li>
-        </ul>
-    </section>
-</footer>
+        <section id="contact-content">
+            <h2 class="footer-title">Contact Us</h2>
+            <ul>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="page assets/instagram.gif" alt="Instagram" width="30">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="page assets/X.gif" alt="X (Twitter)" width="30">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="page assets/facebook.gif" alt="Facebook" width="30">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+``` 
