@@ -975,6 +975,33 @@ header h1 {
     background-color: #333; /* Darker black on hover */
 }
 
+/* Quantity Buttons on Cart Page */
+.decrease-quantity, .increase-quantity {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.decrease-quantity:hover, .increase-quantity:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+/* Wishlist Icon Styling */
+.wishlist-icon {
+    width: 16px;
+    height: 16px;
+    fill: transparent; /* Empty heart by default */
+}
+
+.wishlist-icon.filled {
+    fill: red; /* Filled heart for items in the wishlist */
+}
+
 #cart-summary {
     text-align: right;
     margin-top: 20px;
