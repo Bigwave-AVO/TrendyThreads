@@ -977,8 +977,8 @@ header h1 {
 
 /* Quantity Buttons on Cart Page */
 .decrease-quantity, .increase-quantity {
-    background-color: black;
-    color: white;
+    background-color: black; /* Change button color to black */
+    color: white; /* Ensure text is visible */
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -988,7 +988,7 @@ header h1 {
 }
 
 .decrease-quantity:hover, .increase-quantity:hover {
-    background-color: #333; /* Darker black on hover */
+    background-color: #333; /* Slightly darker black on hover */
 }
 
 /* Wishlist Icon Styling */
@@ -1000,6 +1000,18 @@ header h1 {
 
 .wishlist-icon.filled {
     fill: red; /* Filled heart for items in the wishlist */
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+    width: 16px;
+    height: 16px;
+    fill: white; /* Default empty state */
+    transition: fill 0.3s ease-in-out; /* Smooth transition for fill color */
+}
+
+.cart-icon.filled {
+    fill: green; /* Entire body of the icon changes to green */
 }
 
 #cart-summary {

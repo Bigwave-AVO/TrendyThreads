@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - TrendyThreads</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Paystack Inline Script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>Cart</h1>
+    <div class="hamburger-menu" onclick="toggleSidebar()">
+      &#9776; <!-- Hamburger icon -->
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="wishlist.html">Wishlist</a></li>
+    </ul>
+  </div>
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Cart Section -->
+  <section id="cart-section">
+    <h2 class="section-title">Your Cart</h2>
+    <div id="cart-items">
+      <!-- Cart items will be dynamically loaded here -->
+    </div>
+    <div id="cart-summary">
+      <p id="subtotal">Subtotal: $0.00</p>
+      <button id="checkout-button">Checkout</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+
+  <!-- Payment Script -->
+  <script>
+    const checkoutBtn = document.getElementById("checkout-button");
+
+    checkoutBtn.addEventListener("click", function () {
+      // Replace with dynamic subtotal if available
+      const subtotalElement = document.getElementById("subtotal").textContent;
+      const amountInDollars = parseFloat(subtotalElement.replace("Subtotal: $", "").trim());
+      const amountInKobo = amountInDollars * 100;
+
+      if (amountInKobo <= 0) {
+        alert("No items in cart to checkout.");
+        return;
+      }
+
+      const handler = PaystackPop.setup({
+        key: 'pk_test_bc95d9394b255a36a1ecde69cc463e1da4f71877', // 🔁 Replace with your actual Paystack test public key
+        email: 'user@example.com', // 🔁 Ideally, pull this from user session or input
+        amount: amountInKobo,
+        currency: "NGN", // 🔁 Ensure this matches your currency
+        ref: '' + Math.floor(Math.random() * 1000000000 + 1), // 🔀 Random transaction reference
+        callback: function(response) {
+          alert("Payment complete! Reference: " + response.reference);
+          // You can send response.reference to the backend here if needed
+        },
+        onClose: function() {
+          alert("Transaction was not completed, window closed.");
+        }
+      });
+
+      handler.openIframe();
+    });
+  </script>
+</body>
+</html>

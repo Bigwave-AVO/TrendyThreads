@@ -381,7 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function addToCart(event) {
         const index = event.target.dataset.index;
         const product = wishlist[index];
-
         if (!cart.some((item) => item.name === product.name)) {
             cart.push(product);
             localStorage.setItem("cart", JSON.stringify(cart));
@@ -538,6 +537,56 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("cart-items")) {
         loadCart();
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Global Add to Cart Functionality
+    document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", function () {
+            const productElement = button.closest(".product");
+            const product = {
+                name: productElement.dataset.name,
+                price: productElement.querySelector(".price").textContent,
+                image: productElement.querySelector("img").src,
+                quantity: 1,
+            };
+
+            // Check if the product is already in the cart
+            const existingProduct = cart.find((item) => item.name === product.name);
+
+            if (existingProduct) {
+                // If the product is already in the cart, increase its quantity
+                existingProduct.quantity += 1;
+            } else {
+                // If the product is not in the cart, add it
+                cart.push(product);
+            }
+
+            // Save the updated cart to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Provide feedback to the user
+            alert(`${product.name} has been added to your cart!`);
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Add event listeners to all "Add to Cart" buttons
+    document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", function () {
+            // Find the cart icon inside the clicked button
+            const cartIcon = button.querySelector(".cart-icon");
+
+            // Add the 'filled' class to change the color to green
+            cartIcon.classList.add("filled");
+
+            // Provide feedback to the user
+            alert("Product added to cart!");
+        });
+    });
 });
 
 function toggleSidebar() {
