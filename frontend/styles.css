@@ -155,8 +155,8 @@ header h1 {
 
 /* Product Container */
 .product-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 products per row */
     gap: 20px;
     justify-content: center;
     padding: 20px;
@@ -257,22 +257,22 @@ header h1 {
 }
 
 /* Responsive Design for Product Cards */
+@media (max-width: 1024px) {
+    .product-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 products per row for tablets */
+    }
+}
+
 @media (max-width: 768px) {
     .product-container {
-        justify-content: center; /* Center products */
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row for smaller screens */
     }
+}
 
-    .product {
-        width: 250px; /* Maintain fixed width for product cards */
-    }
-
-    .product-actions {
-        justify-content: space-between; /* Keep buttons side by side */
-        gap: 10px;
-    }
-
-    .add-to-cart, .add-to-wishlist {
-        max-width: 48%; /* Ensure buttons stay within the product card */
+@media (max-width: 480px) {
+    .product-container {
+        grid-template-columns: repeat(2, 1fr); /* Always 2 products per row for the smallest screens */
+        gap: 10px; /* Reduce gap for smaller screens */
     }
 }
 
